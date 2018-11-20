@@ -1,0 +1,31 @@
+#head_line
+{
+	margin: 0px auto;
+	text-align: center;
+}
+
+#btn_css
+{
+	width: 100px;
+    height: 30px;
+    line-height: 18px;
+    font-size: 18px;
+    color: #ffff;
+    background: url("css_image/bg35.jpg") 
+	no-repeat left top;
+    background-position-x: left;
+    background-position-y: top;
+    padding-bottom: 4px;
+}
+#user_input
+{
+	width: 120px;
+	height: 20px;
+}
+
+#topic
+{
+	margin: 0px auto;
+	text-align: center;
+	
+}
