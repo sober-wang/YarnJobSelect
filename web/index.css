@@ -6,8 +6,8 @@
 
 #btn_css
 {
-	width: 100px;
-    height: 30px;
+    width: 100px;
+    height: 35px;
     line-height: 18px;
     font-size: 18px;
     color: #ffff;
@@ -20,7 +20,7 @@
 #user_input
 {
 	width: 120px;
-	height: 20px;
+	height: 35px;
 }
 
 #topic
