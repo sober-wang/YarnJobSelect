@@ -4,23 +4,32 @@
     <meta charset="utf-8">
 	<title>Yarn 作业挑选程序</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+	
 </head>
 <body>
-	<h1 id="topic">Yarn 作业挑选程序</h1>
+	<h1 id="topic">Yarn 作业挑选程序</h1> 
 	<div id="head_line">
-	用户：<input id="user_input">
-	应用类型：<input id="user_input">
-	运行状态：<select id="user_input">
-			<option value="0">RUNNING</option>
-			<option value="1">FINISHED</option>
-			<option value="2">FALED</option>
-			<option value="3">KILLED</option>
-		</select>
-	时间：<input id="user_input" type="date">
-	内存使用(MB)：<input id="user_input">
-	YarnRM IP：<input id="user_input">
-	<button type="button" id="btn_css">挑选</button>
-	<button type="button" id="btn_css">清除</button>
+		用户：<input v-model="msg.User">
+		应用类型：<input v-model="msg.AppType">
+		运行状态：<select v-model="msg.Status">
+				<option value="0">RUNNING</option>
+				<option value="1">FINISHED</option>
+				<option value="2">FALED</option>
+				<option value="3">KILLED</option>
+			</select>
+		时间：<input v-model="msg.DataTime" type="date">
+		内存使用(MB)：<input v-model="msg.Memory">
+		YarnRM IP：<input v-model="msg.IPAddress">
+		<button type="button" id="btn_css" @click="job_select">挑选</button>
+		<button type="button" id="btn_css" >清除</button>
+		
+		<p>{{ T }}</p>
+	
 	</div>
+	
+	
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
