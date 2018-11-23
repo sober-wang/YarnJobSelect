@@ -7,16 +7,34 @@ var yarnjobt = new Vue({
 			Status: "",
 			DataTime: "",
 			Memory: "",
-			IPAddres: ""
+			IPAddres: "",
+
 		},
-		T: ""
+		ShowUserInput: "",
+		sList: [
+			{text: "RUNNING"},
+			{text: "FINISHED"},
+			{text: "FAILED"},
+			{text: "KILLED"}
+		],
+		userInputMsg:{}
 	},
 	methods: {
-		job_select: function(){
-			//console.log(this.msg)
-			this.T = "应用所属用户：" + this.msg.User + "     " + "应用类型：" + this.msg.AppType
+		jobSelect: function(){
+			this.userInputMsg = this.msg			
+			if (this.msg.IPAddres == ""){
+				alert("Yarn ResourceManager 地址不能为空")
+			}
 			
+		},
+		cleanInput: function(){
+			this.msg.User = ""
+			this.msg.AppType = ""
+			this.msg.Status = ""
+			this.msg.DataTime = ""
+			this.msg.Memory = ""
+			this.msg.IPAddres = ""
 		}
-	}
-})
+	},
 
+})
