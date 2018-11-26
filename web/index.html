@@ -12,19 +12,38 @@
 	<h1 id="topic">Yarn 作业挑选程序</h1> 
 	<div id="head_line">
 		用户：<input v-model="msg.User">
-		应用类型：<input v-model="msg.AppType">
+		应用类型：<select v-model="msg.AppType">
+					<option v-for="t in typeList">{{ t.text }}</option>
+				</select>
 		运行状态：
 			<select v-model="msg.Status">
 				<option v-for="s in sList">{{ s.text }}</option>
 			</select>
 		时间：<input v-model="msg.DataTime" type="date">
 		内存使用(MB)：<input v-model="msg.Memory">
-		YarnRM IP：<input v-model="msg.IPAddres">
+		YarnRM 环境：
+			<select v-model="msg.Env">
+				<option v-for="env in envList">{{ env.text }}</option>
+			</select>
 		<button type="button" id="btn_css" @click="jobSelect">挑选</button>
 		<button type="button" id="btn_css" @click="cleanInput">清除</button>
-		<p v-for="(sui,key) in userInputMsg" :key="sui.id">{{ key }}<===>{{ sui }}</p>
-		
-		
+		<table id="tb">
+			<tr id="tr">
+				<th id="th">用户名</th>
+				<th id="th">应用类型</th>
+				<th id="th">运行状态</th>
+				<th id="th">时间</th>
+				<th id="th">内存使用(MB)</th>
+				<th id="th">Yarn 环境</th>
+			<tr v-for="head,index in userInputMsg">
+				<td id="td">{{ head.User }}</td>
+				<td id="td">{{ head.AppType }}</td>
+				<td id="td">{{ head.Status }}</td>
+				<td id="td">{{ head.DataTime }}</td>
+				<td id="td">{{ head.Memory }}</td>
+				<td id="td">{{ head.Env }}</td>
+			</tr>	
+		</table>
 	</div>
 
 	<script type="text/javascript" src="main.js"></script>

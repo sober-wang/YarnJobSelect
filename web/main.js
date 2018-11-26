@@ -7,24 +7,50 @@ var yarnjobt = new Vue({
 			Status: "",
 			DataTime: "",
 			Memory: "",
-			IPAddres: "",
+			Env: "",
 
 		},
 		ShowUserInput: "",
+		typeList: [
+				{text: "Spark"},
+				{text: "Flink"},
+				{text: "MapReduce"}
+		],
 		sList: [
 			{text: "RUNNING"},
 			{text: "FINISHED"},
 			{text: "FAILED"},
 			{text: "KILLED"}
 		],
-		userInputMsg:{}
+		envList:[
+			{text: "Dev"},
+			{text: "QA"},
+			{text: "PRO"}
+		],
+		tableHead: [
+		{User: "用户名",AppType: "应用类型",DataTime: "时间",Memory: "内存使用",Env: "环境"}
+		],
+		userInputMsg:[]
 	},
 	methods: {
 		jobSelect: function(){
-			this.userInputMsg = this.msg			
-			if (this.msg.IPAddres == ""){
-				alert("Yarn ResourceManager 地址不能为空")
+			b = true;
+			switch(b) {
+				case (this.msg.User == ""):
+					alert("[ ERROR ] 用户不能为空")
+					console.log(this.msg)
+					this.cleanInput()
+					break
+				case (this.msg.Env == ""):
+					alert("Yarn ResourceManager IP 不能为空")
+					this.cleanInput()
+					break
+				default:
+					alert("Welcome to Yarn Select Job")
+					console.log(this.msg)
+					this.userInputMsg.push(this.msg)
 			}
+			
 			
 		},
 		cleanInput: function(){
@@ -33,8 +59,10 @@ var yarnjobt = new Vue({
 			this.msg.Status = ""
 			this.msg.DataTime = ""
 			this.msg.Memory = ""
-			this.msg.IPAddres = ""
+			this.msg.Env = ""
+
+			this.userInputMsg = []
 		}
-	},
+	}
 
 })
