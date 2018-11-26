@@ -34,6 +34,7 @@ var yarnjobt = new Vue({
 	},
 	methods: {
 		jobSelect: function(){
+			var p = /[a-zA-Z]/i;
 			switch(true) {
 				case (this.msg.User == ""):
 					alert("[ ERROR ] 用户不能为空")
@@ -44,13 +45,17 @@ var yarnjobt = new Vue({
 					alert("Yarn ResourceManager IP 不能为空")
 					this.cleanInput()
 					break
+				case (p.test(this.msg.Memory)):
+					alert("Memory belong [a-zA-Z]")
+					this.cleanInput()
+					break
 				default:
 					alert("Welcome to Yarn Select Job")
 					console.log(this.msg)
 					this.userInputMsg.push(this.msg)
 			}
-			
-			
+			var userInputDate = new Date(this.msg.DataTime).getTime()
+			console.log("This is now time :" + userInputDate)			
 		},
 		cleanInput: function(){
 			this.msg.User = ""
