@@ -34,8 +34,7 @@ var yarnjobt = new Vue({
 	},
 	methods: {
 		jobSelect: function(){
-			b = true;
-			switch(b) {
+			switch(true) {
 				case (this.msg.User == ""):
 					alert("[ ERROR ] 用户不能为空")
 					console.log(this.msg)
