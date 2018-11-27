@@ -42,7 +42,7 @@ var yarnjobt = new Vue({
 					this.cleanInput()
 					break
 				case (this.msg.Env == ""):
-					alert("Yarn ResourceManager IP 不能为空")
+					alert("Yarn ResourceManager 环境不能为空")
 					this.cleanInput()
 					break
 				case (p.test(this.msg.Memory)):
