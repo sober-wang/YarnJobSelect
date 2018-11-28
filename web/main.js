@@ -23,14 +23,15 @@ var yarnjobt = new Vue({
 			{text: "KILLED"}
 		],
 		envList:[
-			{text: "Dev"},
+			{text: "dev"},
 			{text: "QA"},
 			{text: "PRO"}
 		],
 		tableHead: [
 		{User: "用户名",AppType: "应用类型",DataTime: "时间",Memory: "内存使用",Env: "环境"}
 		],
-		userInputMsg:[]
+		userInputMsg:[],
+		responseMsg: []
 	},
 	methods: {
 		jobSelect: function(){
@@ -55,7 +56,15 @@ var yarnjobt = new Vue({
 					this.userInputMsg.push(this.msg)
 			}
 			var userInputDate = new Date(this.msg.DataTime).getTime()
-			console.log("This is now time :" + userInputDate)			
+			console.log("This is now time :" + userInputDate)
+			
+			axios
+				.get("/selectApp/?env=" + this.msg.Env)
+				.then(function(response){
+					console.log(response.data)
+					this.responseMsg = response.data['app']
+					console.log(this.responseMsg)
+					})
 		},
 		cleanInput: function(){
 			this.msg.User = ""
@@ -66,7 +75,8 @@ var yarnjobt = new Vue({
 			this.msg.Env = ""
 
 			this.userInputMsg = []
-		}
+		},
+
 	}
 
 })
