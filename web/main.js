@@ -23,9 +23,9 @@ var yarnjobt = new Vue({
 			{text: "KILLED"}
 		],
 		envList:[
-			{text: "dev"},
-			{text: "QA"},
-			{text: "PRO"}
+			{text: "Dev"},
+			{text: "Qa"},
+			{text: "Pro"}
 		],
 		tableHead: [
 		{User: "用户名",AppType: "应用类型",DataTime: "时间",Memory: "内存使用",Env: "环境"}
@@ -43,11 +43,11 @@ var yarnjobt = new Vue({
 					this.cleanInput()
 					break
 				case (this.msg.Env == ""):
-					alert("Yarn ResourceManager 环境不能为空")
+					alert("[ ERROR ]Yarn ResourceManager 环境不能为空")
 					this.cleanInput()
 					break
 				case (p.test(this.msg.Memory)):
-					alert("Memory belong [a-zA-Z]")
+					alert("[ ERROR ] Memory 不能包含字母")
 					this.cleanInput()
 					break
 				default:
