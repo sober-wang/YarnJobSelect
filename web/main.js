@@ -52,7 +52,7 @@ var yarnjobt = new Vue({
 					break
 				default:
 					alert("Welcome to Yarn Select Job")
-					console.log(this.msg)
+					//console.log(this.msg)
 					this.userInputMsg.push(this.msg)
 			}
 			var userInputDate = new Date(this.msg.DataTime).getTime()
@@ -61,8 +61,10 @@ var yarnjobt = new Vue({
 			axios
 				.get("/selectApp/?env=" + this.msg.Env)
 				.then(function(response){
-					console.log(response.data)
-					this.responseMsg = response.data['app']
+					//console.log(response.data.app)
+					//var resultList = 
+					//console.log(resultList)
+					this.responseMsg = response.data.app 
 					console.log(this.responseMsg)
 					})
 		},

@@ -35,7 +35,8 @@
 				<th id="th">时间</th>
 				<th id="th">内存使用(MB)</th>
 				<th id="th">Yarn 环境</th>
-			<tr v-for="head,index in userInputMsg">
+			</tr>
+			<tr v-for="(head,index) in userInputMsg">
 				<td id="td">{{ head.User }}</td>
 				<td id="td">{{ head.AppType }}</td>
 				<td id="td">{{ head.Status }}</td>
@@ -44,7 +45,31 @@
 				<td id="td">{{ head.Env }}</td>
 			</tr>	
 		</table>
-		<p v-for="value,index in responseMsg">{{ value.index }}</p>
+
+		<table id="tb">
+			<tr id="tr">
+				<th id="th">应用ID</th>
+				<th id="th">用户</th>
+				<th id="th">名称</th>
+				<th id="th">应用状态</th>
+				<th id="th">最终状态</th>
+				<th id="th">应用类型</th>
+				<th id="th">执行时间</th>
+				<th id="th">占用集群内存总量</th>
+			</tr>
+			<tr v-for="(head,key) in responseMsg">
+				<td id="td">{{ head.id }}</td>
+				<td id="td">{{ head.user }}</td>
+				<td id="td">{{ head.nheadme }}</td>
+				<td id="td">{{ head.stheadte }}</td>
+				<td id="td">{{ head.finheadlStheadtus }}</td>
+				<td id="td">{{ head.applictionType }}</td>
+				<td id="td">{{ head.elheadpsedTime }}</td>
+				<td id="td">{{ head.headllocheadteMB }}</td>
+			</tr>
+
+		</table>
+		<p v-for="(value,index) in responseMsg">{{ value.id }}</p>
 	</div>
 
 	<script type="text/javascript" src="./main.js"></script>

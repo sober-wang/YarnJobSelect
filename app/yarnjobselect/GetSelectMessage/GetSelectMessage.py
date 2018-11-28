@@ -1,6 +1,7 @@
 import requests
 import os
 import configparser
+import json
 
 class select_obj(object):
     def __init__(self):
@@ -78,6 +79,8 @@ def select_main(env):
     if resc == "404":
         return resc
     else:
-        call_web = slct.get_rest(resc)
-        return call_web
+        call_web = {}
+        call_web["app"] = slct.get_rest(resc)
+        call_json = json.dumps(call_web)
+        return call_json
 
