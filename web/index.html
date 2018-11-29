@@ -6,6 +6,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 	<link rel="stylesheet" type="text/css" href="./index.css">
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
 
@@ -60,16 +61,14 @@
 			<tr v-for="(head,key) in responseMsg">
 				<td id="td">{{ head.id }}</td>
 				<td id="td">{{ head.user }}</td>
-				<td id="td">{{ head.nheadme }}</td>
-				<td id="td">{{ head.stheadte }}</td>
-				<td id="td">{{ head.finheadlStheadtus }}</td>
-				<td id="td">{{ head.applictionType }}</td>
-				<td id="td">{{ head.elheadpsedTime }}</td>
-				<td id="td">{{ head.headllocheadteMB }}</td>
+				<td id="td">{{ head.name }}</td>
+				<td id="td">{{ head.state }}</td>
+				<td id="td">{{ head.finalStatus }}</td>
+				<td id="td">{{ head.applicationType }}</td>
+				<td id="td">{{ head.elapsedTime }}</td>
+				<td id="td">{{ head.allocatedMB }}</td>
 			</tr>
-
 		</table>
-		<p v-for="(value,index) in responseMsg">{{ value.id }}</p>
 	</div>
 
 	<script type="text/javascript" src="./main.js"></script>
