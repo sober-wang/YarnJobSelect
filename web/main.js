@@ -72,6 +72,7 @@ var yarnjobt = new Vue({
 			this.msg.Env = ""
 
 			this.userInputMsg = []
+			this.responseMsg = []
 		},
 
 	}
